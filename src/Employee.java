@@ -1,12 +1,13 @@
 public class Employee {
     private final String fullName;
     private int department;
-    private double salary;
+    private int salary;
     private final int id;
     static int counter = 1;
 
 
-    public Employee(String fullName, int department, double salary) {
+
+     Employee(String fullName, int department, int salary) {
         this.fullName = fullName;
         this.department = department;
         this.salary = salary;
@@ -14,20 +15,15 @@ public class Employee {
 
     }
 
-
     public String getFullName() {
         return fullName;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public int getDepartment() {
         return department;
     }
 
-    public double getSalary() {
+    public int getSalary() {
         return salary;
     }
 
@@ -43,4 +39,5 @@ public class Employee {
         return "Ф.И.О. : " + fullName + " Отдел : " + department + " Зарплата: " + salary + " id=" + id + "]\n";
 
     }
+
 }
