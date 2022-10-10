@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Employee {
     private final String fullName;
     private int department;
@@ -35,12 +37,27 @@ public class Employee {
         this.department = department;
     }
 
+
+
     public void setSalary(int salary) {
         this.salary = salary;
     }
-
     public String toString() {
-        return "Ф.И.О. : " + fullName + " Отдел : " + department + " Зарплата: " + salary + " id=" + id + "]\n";
+        return "Ф.И.О. : " + fullName + " Отдел : " + department + " Зарплата: " + salary + " id=" + id + "\n";
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return department == employee.department && Double.compare(employee.salary, salary) == 0 &&
+                id == employee.id && Objects.equals(fullName, employee.fullName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName, department, salary, id);
     }
 }
